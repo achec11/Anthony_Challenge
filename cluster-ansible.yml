@@ -1,0 +1,13 @@
+- name: Create stack 
+  amazon.aws.cloudformation:
+    stack_name: "secnet_challenge"
+    state: present
+    region: us-east-1
+    disable_rollback: true
+    template_url: https://s3.amazonaws.com/test-bucket/cluster.yml
+    template_parameters:
+      SubnetA:
+      SubnetB:
+      Vpc: 
+    tags:
+      Stack: secnet_challenge

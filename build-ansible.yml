@@ -1,0 +1,22 @@
+- hosts: build_host
+  gather_facts: no
+
+  tasks:
+    - name: Git checkout
+      git:
+        repo: 'https://git.test.org/secnet_challenge.git'
+        dest: /build/secnet_challenge
+        version: develop
+        clone: yes
+        update: yes
+
+    - name: build container 
+      docker_image:
+        build:
+          path: /build/secnet_challenge
+        source: build 
+        name: registry.test.org/secnet_challenge
+        tag: 1.0
+        push: yes
+        state: present 
+
