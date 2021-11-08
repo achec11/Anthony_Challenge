@@ -19,7 +19,6 @@ Parameters:
 
   ImageRepo:
     Type: String 
-    Default:
     Description: Docker registry for container
 
   LogGroupName:

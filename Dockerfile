@@ -10,7 +10,6 @@ RUN openssl req -x509 -nodes -days 365 \
 
 RUN mkdir /var/www/secnet 
 
-COPY index.html /var/www/html/
 COPY ssl.conf /etc/httpd/conf.d/
 COPY secnet.conf /etc/httpd/conf.d/
 COPY index.html /var/www/secnet/
